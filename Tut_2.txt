@@ -1,0 +1,15 @@
+Port Mapping and Environment Variables
+
+If we run a node js or any server inside our container we need to provide a port number where it can run
+So we can map the port of the container to the host machine using the -p option
+
+docker run -it -p 8000:8000 piyushgargdev/mynodeapp
+-it ==> interactive mode
+-p ==> port mapping
+8000:8000 ==> port of the host machine : container
+piyushgargdev/mynodeapp ==> image that is being run in the container
+
+
+docker run -it -p 6000:8000 piyushgargdev/mynodeapp
+This will map the port 6000 of the host machine to the port 8000 of the container
+Now it will run on localhost:6000 in browser
