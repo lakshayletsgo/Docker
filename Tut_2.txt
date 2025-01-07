@@ -13,3 +13,8 @@ piyushgargdev/mynodeapp ==> image that is being run in the container
 docker run -it -p 6000:8000 piyushgargdev/mynodeapp
 This will map the port 6000 of the host machine to the port 8000 of the container
 Now it will run on localhost:6000 in browser
+
+docker run -it p 8000:8000 -e key=value -e key=value piyushgargdev/mynodeapp
+This is how you pass Environment Variables
+Here -e is for environment variables and key=value is the variable and value that is being passed
+We have declared two environment variables
