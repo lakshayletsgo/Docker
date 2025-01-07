@@ -1,5 +1,6 @@
 Introduction to some basic commands
 Replace ==> container_name with actually container name
+            lakshay_container with any custom name
 
 docker run -it ubuntu
 This command starts a container having a image of ubuntu. The -it flag is used to attach the terminal to the container. The -it flag is called interactive mode.
@@ -38,3 +39,7 @@ We first need to start the container only then we can attach the terminal to it
 
 docker images
 This command will list all the images we have in our local machine. It will show us the id of the images
+
+docker run -it --name lakshay_container node
+This will start a new container with name lakshay_container and it will use the node image.
+If we dont pass any name it will asign a random name
