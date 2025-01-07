@@ -1,0 +1,22 @@
+Caching in Docker and Publishing in docker hub
+
+Caching means a temporary memory so that it dont need to re-run the commnads
+For eg. If we change the index.js then it will only run from the line 10 on the docker file and not run above 10 because there is no change in them so it will collect their information from their cache 
+
+So it is good practice to keep the common code at the top so that it dont get executed again again and just the code in which their is change is run and not the entire data
+
+Every line of the code in dockerfile is layer
+
+
+To publish any image to docker hub we can just go to web.docker.com
+Then create an account then we create a new repository
+We then first create the image for eg in the current when i create  a new repository i have to create an image of the app with the name lakshaygoel911/lakshay-docker-node
+docker build -t lakshaygoel911/lakshay-docker-node .
+
+After i created the image we just first login in the local machine with the command 
+docker login
+After login we just push the image with the command
+docker push lakshaygoel911/lakshay-docker-node
+
+This will push the image to the online repository and it is good to go and if we want to get that image we just call it like other images
+docker run -it lakshaygoel911/lakshay-docker-node
