@@ -1,0 +1,58 @@
+Dockerization of an App
+
+We can dockerize an app very easily we just need to create a Dockerfile in the root of our project.
+Then we write the base image first.
+We need to carefully choose the base image because it will be the base of our image and all other commnad will be executed on top of it.
+Then we install the required packages and copy the files from the current directory to the image.
+
+For eg. In the node-app folder we can see there is one file called dockerfile where all the commands are put and when we build the image, the docker will execute this file and run all the commnad to create the images
+
+In the file we first start with the base image 
+FROM ubuntu
+
+After this we install the required packages
+RUN apt-get update
+RUN apt-get install -y curl
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash
+RUN apt-get install -y nodejs
+
+These all the commnads will run in the docker container and help in creating a image
+These commnads are just installing the node package inside the ubuntu machine
+
+
+After this we copy files inside the container 
+COPY package.json package.json
+COPY package-lock.json package-lock.json
+COPY index.js index.js
+
+COPY source destination
+This will copy all the three files inside the container at the same name
+
+
+After this we simply run
+RUN npm install
+
+This will just install the node modules inside the containe
+
+
+This will tell what is the entry point and its type
+ENTRYPOINT ["node","index.js"]
+
+
+At the end we run
+docker build -t lakshay-docker-node .
+
+This will build the image
+-t will tell that this is the name of image (tag)
+.  will tell that the dockerfile is present in this folder only(Basically tells the path of the dockerfile)
+lakshay-docker-node is the name of the image
+
+
+This will create a image of the node js on ubuntu in our local machine
+To check its presence we run the old commmad but now with the package name we have given i.e lakshay-docker-node 
+
+docker run -e PORT=8181 -p 8181:8181 -it lakshay-docker-node
+
+
+We can also simply make node js as the base image and then we dont need to install it 
+That's why we should choose the base image carefully
