@@ -1,0 +1,22 @@
+Docker Compose
+
+Docker Compose is a tool for defining and running multi-container Docker applications.
+With Compose, you use a YAML file to configure your application's services.
+With just one command we can execute the docker and dont need to write the entire the environment and expose ports again and again
+
+To do this we just need to make a file called docker-compose.yml
+After this we just write the configuration
+
+
+Then we just run the command 
+docker compose up 
+To start a new stack of containers in a docker 
+This container will have redis and postgres as two images
+
+
+docker compose down
+This will delete the stack
+
+
+docker compose up -d
+This will run the stack in detached mode. That means it will run in background

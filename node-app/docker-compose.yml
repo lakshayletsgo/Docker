@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  postgres: # We can name it anything it is just a reference to the service
+    image: postgres #hub.docker.com se pull hoga
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: review
+      POSTGRES_PASSWORD: password
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+
+
+
