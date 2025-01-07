@@ -1,0 +1,51 @@
+Docker Networking
+Replace ==> my_network with some custom name of the network
+
+It is when the container is able to talk to outside world
+It is when the container is able to talk to other containers in the same network
+for eg. 
+docker run -it --name my_container busybox
+This creates a new container with name my_name now if we try to 
+ping google.com
+It will be able to talk to outside world
+
+
+docker network ls
+This will list the network present in the local machine
+
+
+Bridge
+It is a virtual network interface. In this a bridge is established between the host machine and docker to get the internet connectivity
+
+By default it will be connected to a bridge network
+To check we can run the command
+docker network inspect bridge
+
+
+Host
+It is a network where the container will be connected to the host machine network directly i.e. no bridge is there it is direct link
+The port used in the container are of the host machine only and no port mapping is required
+
+docker run -it  --network=host busybox
+This will create a network with image of busybox with host network
+
+
+None
+It is a network where the container will not be connected to any network i.e. it is isolated
+Here if we try to ping with any network, it won't able to ping as it don't have any access to network
+
+docker run -it  --network=none busybox
+
+
+Custom Network
+We can also create personal network
+docker network create -d bridge my_network
+
+This will create a network with name my_network and type bridge
+If we want multiple container inside a network we can just pass the my_network in network for eg.
+
+docker run -it --network= my_network --name container1 ubuntu
+docker run -it --network= my_network --name container2 ubuntu
+
+This will create two container inside network my_network
+This is helpful if we want to create inter connected containers
