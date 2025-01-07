@@ -1,0 +1,40 @@
+Introduction to some basic commands
+Replace ==> container_name with actually container name
+
+docker run -it ubuntu
+This command starts a container having a image of ubuntu. The -it flag is used to attach the terminal to the container. The -it flag is called interactive mode.
+It is used to tell that open terminal in the container
+This will create a new container everytime we run this command
+It will first check if we have the ubuntu image locally in the docker if we dont have it, it will pull it from hub.docker.com 
+hub.docker.com is like github for docker images. It is a central location where all the docker images are stored.
+
+
+docker container ls
+This command will list all running docker containers. It will show us the id of the container, the name of the container and the image they are using
+If we want to see all the containers including the ones that are not running, we can use this command
+
+
+docker container ls -a
+This command will list all the container whether they are running or not.
+
+
+docker start container_name
+This will start the container we named it 
+
+
+docker stop container_name
+This will stop the container
+
+
+docker exec container_name ls
+This command will execute the ls command inside the container. It will list all the files and directories in container_name container
+
+
+docker start container_name
+docker exec -it container_name bash
+This command will open a new terminal inside the container. We can use this command to execute any command inside the terminal
+We first need to start the container only then we can attach the terminal to it
+
+
+docker images
+This command will list all the images we have in our local machine. It will show us the id of the images
