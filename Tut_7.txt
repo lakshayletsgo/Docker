@@ -1,0 +1,18 @@
+Docker Mounting and Multi Stage Build 
+
+Docker Mounting
+Whenever we stop a docker all its data is deleted
+Docker mounting is a feature that allows you to mount a Docker container as a file system on your host machine
+To prevent data from getting lost we can mount particular directory to the host machine so that even if the docker is closed all the data is saved in the host machine
+Whatever changes are made in the container will be reflected in the host machine only in the particular folder specified
+
+docker run -it -v D:/container_folder:/home ubuntu
+
+This command will mount the D:/container_folder of host machine to /home in the container
+The -v option is used to mount the host machine folder to the container folder
+
+
+Multi Stage Build
+Multi stage build is a feature in Docker that allows you to build your Docker image in multiple stages
+The idea behind multi stage build is to separate the build process into multiple stages, each stage is a Docker image
+For eg.  If we want to have an image for building only then we can add it to builder stage on the other hand if we want to have an image for running then we can add it to the runner
